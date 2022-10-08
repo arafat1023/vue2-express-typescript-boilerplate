@@ -1,0 +1,241 @@
+@import "variables";
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../assets/fonts/avenir/Avenir-Medium.eot');
+  src: local('Avenir Medium'), local('Avenir-Medium'),
+  url('../../assets/fonts/avenir/Avenir-Medium.eot?#iefix') format('embedded-opentype'),
+  url('../../assets/fonts/avenir/Avenir-Medium.woff2') format('woff2'),
+  url('../../assets/fonts/avenir/Avenir-Medium.woff') format('woff'),
+  url('../../assets/fonts/avenir/Avenir-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: NotomojiColor;
+  font-weight: 400;
+  src: url(../../assets/fonts/NotomojiColor.ttf) format("truetype");
+}
+
+$primaryB: #1C0101;
+
+html {
+  font-size: 14px;
+  line-height: 1.25;
+  overflow-y: initial;
+}
+
+.emoji {
+  font-family: Lato, Twemoji, NotomojiColor, Notomoji, EmojiOne Color, Symbola, Noto,
+  Segoe UI Emoji, OpenSansEmoji, monospace;
+  font-size: 40px;
+  font-weight: bold;
+  font-style: initial;
+  color: black !important;
+  line-height: 48px;
+}
+
+.v-application {
+  font-family: 'Lato', Roboto, sans-serif;
+
+  header, .header {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+  }
+
+  title, .title {
+    font-size: 16px !important;
+    line-height: 20px !important;
+    font-weight: 700;
+    word-break: normal;
+  }
+
+  .subtitle {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .v-subheader {
+    @extend .subtitle;
+    color: black !important;
+    padding: 0;
+    height: auto;
+  }
+
+  .v-dialog > .v-card > .v-card__title {
+    font-size: 20px;
+    justify-content: center;
+  }
+
+  .v-card__title {
+    @extend header;
+  }
+
+  .v-card__text {
+    font-size: 12px;
+    line-height: 14px;
+
+    .description {
+      color: #80868B;
+    }
+  }
+
+  .v-data-table > .v-data-table__wrapper > table > tbody > tr > td,
+  .v-data-table > .v-data-table__wrapper > table > thead > tr > td,
+  .v-data-table > .v-data-table__wrapper > table > tfoot > tr > td,
+  .v-data-footer {
+    font-size: 1rem;
+  }
+
+  @for $i from 1 through 4 {
+    .display-#{$i} {
+      font-family: 'Lato', Roboto, sans-serif !important;
+    }
+  }
+
+  @for $i from 13 through 24 {
+    .order-#{$i} {
+      order: #{$i} !important;
+    }
+  }
+
+  @for $i from 17 through 30 {
+    .pb-#{$i} {
+      padding-bottom: #{$i * 4}px !important;
+    }
+    .pt-#{$i} {
+      padding-top: #{$i * 4}px !important;
+    }
+    .mb-#{$i} {
+      margin-bottom: #{$i * 4}px !important;
+    }
+    .mt-#{$i} {
+      margin-bottom: #{$i * 4}px !important;
+    }
+  }
+
+  label {
+    font-weight: 500;
+  }
+}
+
+.theme--light {
+  &.v-text-field--filled,
+  &.v-input--switch--flat {
+    border-radius: $border-radius-sm;
+
+    label + & {
+      margin-top: 5px;
+    }
+
+    > .v-input__control {
+      > .v-input__slot {
+        background-color: #F4F8FB;
+        margin-bottom: 14px;
+        min-height: 50px;
+
+        &:before {
+          border: none;
+        }
+
+        &:after {
+          border: none;
+        }
+      }
+    }
+
+    .v-text-field__details {
+      padding: 0;
+    }
+  }
+
+  &.v-input--switch--flat {
+    .v-input__slot {
+      padding-left: 12px;
+    }
+  }
+}
+
+.v-messages {
+  font-size: 14px;
+
+  .sign + .text {
+    margin-left: 12px;
+  }
+}
+
+.v-btn {
+  text-transform: none;
+  letter-spacing: normal;
+
+  &.v-size--large {
+    font-size: 18px;
+
+    &:not(.v-btn--round) {
+      min-width: 140px;
+    }
+  }
+}
+
+.theme--light.v-chip:not(.v-chip--active) {
+  background: $chip-bg;
+}
+
+.duration {
+  color: white;
+}
+
+.v-card .v-image .duration {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+}
+
+.v-chip {
+  line-height: 16px;
+
+  &.v-size--default {
+    font-family: Lato, sans-serif;
+
+  }
+}
+
+.container {
+  .pseudo-nav {
+    margin-top: 72px;
+  }
+}
+
+.fill-width {
+  width: 100%;
+}
+
+.ellipsis {
+  word-break: break-word;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.v-dialog.message-video-popup {
+  width: auto !important;
+
+  .v-slider__track-container {
+    height: 4px;
+    cursor: pointer;
+  }
+  .v-slider__thumb {
+    background-color: #FE4642 !important;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,9 @@
+src/configs/server.config.json
+src/types/*.js
+src/app.js
+src/db.js
+src/bin/*.js
+mongodb
+public/*
+test-report/
+logs/*

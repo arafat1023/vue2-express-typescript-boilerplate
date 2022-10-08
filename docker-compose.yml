@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  mongodb:
+    image: mongo:5.0
+    container_name: tb-mongodb # when running in docker, dbServer in packages/server/src/configs/server.config.json
+    ports:
+      - 27017:27017
+
+  redis:
+    image: bitnami/redis:6.0
+    container_name: tb-redis
+    ports:
+      - 6379:6379
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+
+  app:
+    build: .
+    container_name: typescript-boilerplate
+    network_mode: host
+    working_dir: /typescript-boilerplate
+    depends_on:
+      - mongodb
+      - redis
+    volumes:
+      - ./:/typescript-boilerplate
+      - ./.cache:/usr/local/share/.cache/
+    entrypoint: /bin/bash

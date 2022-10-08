@@ -1,0 +1,14 @@
+.idea
+.cache
+.env
+node_modules
+yarn-error.log
+.vscode/*
+logs/*
+build/*
+/dump.rdb
+**/*.DS_Store*
+
+# vscode vetur extension (required for *.vue file) expects a config in project root
+# it basically extends ./packages/client/tsconfig.json
+/tsconfig.json

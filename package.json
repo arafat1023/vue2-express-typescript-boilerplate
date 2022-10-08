@@ -1,0 +1,44 @@
+{
+  "name": "typescript-boilerplate",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "^16"
+  },
+  "workspaces": [
+    "packages/client",
+    "packages/server",
+    "packages/dto",
+    "packages/utilities",
+    "packages/types"
+  ],
+  "scripts": {
+    "client": "yarn workspace client",
+    "server": "yarn workspace server",
+    "dto": "yarn workspace dto", 
+    "utilities": "yarn workspace utilities",
+    "types": "yarn workspace types",
+
+    "serve": "concurrently \"yarn client serve\" \"yarn server serve\" \"yarn watch\" -n client,server,\"watch \" -c cyan,magenta,blue --handle-input --default-input-target server",
+    "serve:local": "concurrently \"yarn client serve:local\" \"yarn server serve\" \"yarn watch\" -n client,server,\"watch \" -c cyan,magenta,blue --handle-input --default-input-target server",
+    "serve:server": "concurrently \"yarn server serve\" \"yarn server watch\" -n server,typescript -c magenta,blue --handle-input --default-input-target server",
+    
+    "watch": "concurrently \"yarn server watch\" \"yarn dto watch\" \"yarn utilities watch\" \"yarn types watch\" -n server,dto,utilities,types -c red,green,yellow,black",
+    "start": "yarn server start",
+    "build:others": "yarn types build && yarn utilities build && yarn dto build",
+    "build": "yarn build:others && yarn client build && yarn server build",
+
+    "test:client": "yarn client test:unit",
+    "test:server": "yarn server test",
+    "test": "yarn test:client && yarn test:server",
+
+    "lint:client": "yarn client lint",
+    "lint:server": "yarn server lint",
+    "lint:dto": "yarn dto lint",
+    "lint:utilities": "yarn utilities lint",
+    "lint:types": "yarn types lint"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}

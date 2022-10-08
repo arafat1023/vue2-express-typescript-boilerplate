@@ -1,0 +1,4 @@
+// Use this tsconfig in project root. So import file with `@` can support file navigation
+{
+  "extends": "./packages/client/tsconfig.json",
+}
